@@ -1,0 +1,2 @@
+let ourPlanet;    //Create a variable with the name of our planet
+let currentUser;  //Create a variable to store the name of a current visitor to a website
