@@ -11,9 +11,11 @@
         'use strict';
         function getMaxSubSum(arr){
             let max = 0;
-            let list = [arr[0]];
+            let list = [];
             for (let i = 0; i < arr.length; i++){
                 let total = arr[i];
+                list.push(total);
+
 
                 if (i < (arr.length -1)){
                     for (let j = i+1 ; j < arr.length ; j++){
