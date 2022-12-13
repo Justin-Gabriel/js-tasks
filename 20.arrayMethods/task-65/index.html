@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+
+      function Calculator() {
+        let list = ["+", "-"];
+        this.calculate = function (str) {
+          let first = str.indexOf(" ");
+          let last = str.lastIndexOf(" ") + 1;
+          let operator = str.slice(first, last).trim();
+          let arr = str.split(operator);
+          if (list.includes(operator)) {
+            switch (operator) {
+              case "+":
+                return +arr[0] + +arr[1];
+              case "-":
+                return +arr[0] - +arr[1];
+              case "*":
+                return +arr[0] * +arr[1];
+              case "/":
+                return +arr[0] / +arr[1];
+              case "%":
+                return +arr[0] % +arr[1];
+              case "**":
+                return Math.pow(+arr[0], +arr[1]);
+            }
+          } else return "operator not defined"
+        };
+
+        this.addMethod = function (name, func) {
+          list.push(name);
+        };
+      }
+
+      let calc = new Calculator();
+
+      alert(calc.calculate("12 + 34"));
+
+      let powerCalc = new Calculator();
+      powerCalc.addMethod("*", (a, b) => a * b);
+      powerCalc.addMethod("/", (a, b) => a / b);
+      powerCalc.addMethod("**", (a, b) => a ** b);
+
+      let result = powerCalc.calculate("2 ** 3");
+      alert(result);
+    </script>
+  </body>
+</html>
