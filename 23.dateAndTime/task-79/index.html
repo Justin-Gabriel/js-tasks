@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      function getLocalDay(date) {
+        switch (date.getDay()) {
+          case 0:
+            return 7;
+            break;
+          case 1:
+            return 1;
+            break;
+          case 2:
+            return 2;
+            break;
+          case 3:
+            return 3;
+            break;
+          case 4:
+            return 4;
+            break;
+          case 5:
+            return 5;
+            break;
+          case 6:
+            return 6;
+            break;
+        }
+      }
+
+      let date = new Date(2012, 0, 3); // 3 Jan 2012
+      alert(getLocalDay(date));
+    </script>
+  </body>
+</html>
