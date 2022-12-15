@@ -12,6 +12,11 @@
         function formatDate(date) {
             let now = new Date();
             let diff = now - date;
+            let year = date.getFullYear().toString().slice(-2);
+            let month = (date.getMonth() + 1) < 10 ? '0'+(date.getMonth() + 1) : (date.getMonth()+1) ;
+            let day = date.getDate() < 10 ? '0'+date.getDate() : date.getDate();
+            let hour  = date.getHours() < 10 ? '0'+date.getHours() : date.getHours();
+            let min = date.getMinutes() < 10 ? '0'+date.getMinutes() : date.getMinutes();
 
             if (diff < 1000) {
 
@@ -24,14 +29,9 @@
             } else if(diff/60000 < 60) {
 
                 return `${diff/60000} min. ago`;
+
             } else {
-            let year = date.getFullYear().toString().slice(-2);
-            let month = (date.getMonth() + 1) < 10 ? '0'+(date.getMonth() + 1) : (date.getMonth()+1) ;
-            let day = date.getDate() < 10 ? '0'+date.getDate() : date.getDate();
-            let hour  = date.getHours() < 10 ? '0'+date.getHours() : date.getHours();
-            let min = date.getMinutes() < 10 ? '0'+date.getMinutes() : date.getMinutes();
-
-
+                
                 return `${day}.${month}.${year} ${hour}:${min}`;
 
             }
