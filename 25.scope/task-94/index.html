@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      let arr = [1, 2, 3, 4, 5, 6, 7];
+      function inBetween(fir, las) {
+        let arry = arr;
+        let i = 0;
+        return function () {
+          if (arry[i] >= fir && arry[i] <= las) {
+            i++;
+            return true;
+          }
+          i++;
+          return false;
+        };
+      }
+
+      function inArray(arry) {
+        let arrys = arr ;
+        let i = 0;
+        return function (){
+            for (let j =0 ; j < arry.length ; j++){
+                
+                console.log("j" + arrys[j]);
+                console.log("i: "+arrys[i]);
+                if (arry[j] == arrys[i]){
+                    i++;
+                    return true;
+                }else if ( j == arry.length) i++;
+            }
+            
+        }
+
+      }
+
+      alert(arr.filter(inBetween(3, 6))); // 3,4,5,6
+
+      alert(arr.filter(inArray([1, 2, 10]))); // 1,2
+    </script>
+  </body>
+</html>
