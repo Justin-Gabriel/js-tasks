@@ -13,24 +13,25 @@
       function Calculator() {
         let list = ["+", "-"];
         this.calculate = function (str) {
-          let first = str.indexOf(" ");
-          let last = str.lastIndexOf(" ") + 1;
-          let operator = str.slice(first, last).trim();
-          let arr = str.split(operator);
+          let arr = str.split(' ');
+          console.log(arr);
+          let operator = arr[1];
+          console.log(operator);
+
           if (list.includes(operator)) {
             switch (operator) {
               case "+":
-                return +arr[0] + +arr[1];
+                return +arr[0] + +arr[2];
               case "-":
-                return +arr[0] - +arr[1];
+                return +arr[0] - +arr[2];
               case "*":
-                return +arr[0] * +arr[1];
+                return +arr[0] * +arr[2];
               case "/":
-                return +arr[0] / +arr[1];
+                return +arr[0] / +arr[2];
               case "%":
-                return +arr[0] % +arr[1];
+                return +arr[0] % +arr[2];
               case "**":
-                return Math.pow(+arr[0], +arr[1]);
+                return Math.pow(+arr[0], +arr[2]);
             }
           } else return "operator not defined"
         };
