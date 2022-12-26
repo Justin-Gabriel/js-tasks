@@ -42,7 +42,6 @@
   <script>
     // ... your code...
     for (let elem of document.querySelectorAll('li') ) {
-      console.log(elem);
         let name = elem.firstChild.data.trim();
         let len = elem.getElementsByTagName('li').length;
         alert( name + ": " + len );
