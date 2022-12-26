@@ -41,11 +41,9 @@
 
   <script>
     // ... your code...
-    let elements = document.querySelectorAll('li');
-    for (let elem of elements ) {
+    for (let elem of document.querySelectorAll('li') ) {
       console.log(elem);
-        let name = elem.firstChild.data;
-        name = name.trim();
+        let name = elem.firstChild.data.trim();
         let len = elem.getElementsByTagName('li').length;
         alert( name + ": " + len );
     }
