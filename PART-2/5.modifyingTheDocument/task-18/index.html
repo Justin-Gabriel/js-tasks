@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+    <style>
+        #hhh {
+            color:red;
+        }
+        #mmm {
+            color: green;
+        }
+        #sss {
+            color: blue;
+        }
+    </style>
+  <!-- click on this button calls clockStart() -->
+  <input type="button" onclick="clockStart()" value="Start">
+
+  <!-- click on this button calls clockStop() -->
+  <input type="button" onclick="clockStop()" value="Stop">
+
+  <script>
+    let inpt = document.querySelector('input');
+    inpt.insertAdjacentHTML('beforeBegin',`<div><span id ='hhh'>hh</span>:<span id = 'mmm'>mm</span>:<span id ='sss'>ss</span></div>`);
+    let myinterval;
+    function clockStart() {
+        myinterval = setInterval(function clocksStart(){
+        let d = new Date();
+        let hh = d.getHours();
+        let mm = d.getMinutes();
+        let ss = d.getSeconds();
+        if (hh < 10) {
+            hh = "0" + hh;
+        }
+        
+        if (mm < 10) {
+            mm = "0" + mm;
+        }
+        
+        if (ss < 10) {
+            ss = "0" + ss;
+        }
+
+        hhh.innerHTML = hh;
+        mmm.innerHTML = mm;
+        sss.innerHTML = ss;
+        },1000);
+        
+    }
+    
+    function clockStop() {
+        clearInterval(myinterval)
+    }
+  </script>
+
+</body>
+</html>
