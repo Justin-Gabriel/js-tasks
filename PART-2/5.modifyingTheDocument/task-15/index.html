@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tree"></div>
+
+  <!-- The result should be:
+<div id="tree">
+<ul>
+  <li>Fish
+    <ul>
+      <li>trout</li>
+      <li>salmon</li>
+    </ul>
+  </li>
+  <li>Trees
+    <ul>
+      <li>Huge
+        <ul>
+          <li>sequoia</li>
+          <li>oak</li>
+        </ul>
+      </li>
+      <li>Flowering
+        <ul>
+          <li>apple tree</li>
+          <li>magnolia</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+</div>
+-->
+
+  <script>
+    let data = {
+      "Fish": {
+        "trout": {},
+        "salmon": {}
+      },
+
+      "Tree": {
+        "Huge": {
+          "sequoia": {},
+          "oak": {}
+        },
+        "Flowering": {
+          "apple tree": {},
+          "magnolia": {}
+        }
+      }
+    };
+
+    /*function createTree(container, data) {
+      // your code 
+      let ul = document.createElement('ul');
+      container.append(ul);
+      function createTreeDom(data){}
+      for (let key in data) {
+        let li = document.createElement('li');
+        li.innerHTML = key ;
+        ul.append(li)
+        for (let value in data[key]) {
+            let ul1 = document.createElement('ul');
+            li.append(ul1);
+            let li1 = document.createElement('li');
+            li1.innerHTML = value;
+            ul1.append(li1);
+            console.log(data[key][value]);
+            for(let val in data[key][value] ){
+                let ul2 = document.createElement('ul');
+                li1.append(ul2);
+                let li2 = document.createElement('li');
+                li2.textContent = val;
+                ul2.append(li2);
+            }
+        }
+        
+      }
+
+    }
+    */
+    function createTree(container, obj) {
+        container.append(createTreeDom(obj)) ;
+
+    }
+    function createTreeDom(obj) {
+        if ( !Object.keys.length) return ;
+
+        let ul = document.createElement('ul') ;
+        for (let key in obj) {
+            let li = document.createElement('li')
+            li.innerHTML = key;
+            let childrenUl = createTreeDom(obj[key]);
+            if(childrenUl) {
+                li.append(childrenUl);
+            }
+
+            ul.append(li)
+        }
+        return ul ;
+
+
+    }
+
+    createTree(document.getElementById('tree'), data);
+  </script>
+
+</body>
+</html>
