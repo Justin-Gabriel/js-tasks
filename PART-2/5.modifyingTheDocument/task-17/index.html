@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+
+      td,
+      th {
+        border: 1px solid black;
+        padding: 3px;
+        text-align: center;
+      }
+
+      th {
+        font-weight: bold;
+        background-color: #e6e6e6;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="calendar"></div>
+
+    <script>
+      function createCalendar(elem, year, month) {
+        // ...your code that generates the calndar in elem...
+        let first = new Date(year, month - 1);
+        let firstDay = first.getDay();
+        console.log(firstDay);
+        let last = new Date(year, month, 0);
+        let lastDate = last.getDate();
+        console.log(lastDate);
+        let table = document.createElement("table");
+        calendar.append(table);
+
+        function generateHead() {
+          let thead = table.createTHead();
+          let row = thead.insertRow();
+          let days = ["MO", "TU", "WE", "TH", "FR", "SA", "SU"];
+          for (let day of days) {
+            let th = document.createElement("th");
+            let text = document.createTextNode(day);
+            th.appendChild(text);
+            row.appendChild(th);
+          }
+        }
+
+        function generateBody() {
+          let weeks;
+          if(firstDay == 0) firstDay = 7 ;
+          let firstWeek = 7 - (firstDay - 1);
+          if (firstWeek == 7) {
+            weeks = Math.round(lastDate/7);
+          }else {
+            weeks = (lastDate - firstWeek / 7);
+          }
+          let data = 1 ;
+          let k  = 0;
+
+          for (let i = 0; i <= weeks; i++) {
+            let row = table.insertRow();
+            
+            for (let j = 0 ; j < 7 ;j++){
+                if (data < lastDate+1){
+                    if(k < 7){
+                        let cell = row.insertCell();
+                        if( k < (firstDay - 1)) {
+                            console.log(k);
+                            let text = document.createTextNode(" ");
+                            console.log("text", text)
+                            cell.appendChild(text);
+                            k++;
+    
+                        } else {
+                            let text = document.createTextNode(data);
+                            cell.appendChild(text);
+                            data++ ;
+                            k++;
+    
+                        }
+                        
+                    }else{
+                        let cell = row.insertCell();
+                        let tex = document.createTextNode(data)
+                        cell.appendChild(tex);
+                        data++; 
+                    }
+                }
+                
+                
+                
+                               
+
+            }
+          }
+        }
+
+        generateHead();
+        generateBody();
+      }
+
+      createCalendar(calendar, 2012, 9);
+    </script>
+  </body>
+</html>
