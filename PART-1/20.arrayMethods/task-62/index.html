@@ -10,13 +10,15 @@
     <script>
       "use strict";
       function filterRangeInPlace(arr,fir,las){
-        for (let i = 0; i < arr.length ; i++){
-          if(arr[i] < fir || arr[i] > las) {
-            arr.splice(i,1);
-          }
-        }
+        let value = arr.filter((item) => item >= fir && item <= las);
+        value.sort((a,b) => a-b);
+        arr.sort((a,b) => a-b)
+        let first = value[0];
+        let last = value.at(-1);
+        arr.splice(arr.lastIndexOf(last) + 1);
+        arr.splice(0,arr.indexOf(first));
       }
-      let arr = [5, 3, 8, 1,0];
+      let arr = [1,4,3,5,1,0,1];
 
       filterRangeInPlace(arr, 1, 4); // removed the numbers except from 1 to 4
 
