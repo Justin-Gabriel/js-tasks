@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style>
+    #field {
+      width: 200px;
+      border: 10px groove black;
+      background-color: #00FF00;
+      position: relative;
+    }
+
+    #ball {
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body style="height:2000px">
+
+
+  <div id="field">
+    <img src="https://en.js.cx/clipart/ball.svg" width="40" height="40"id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+  </div>
+  <script>
+        
+        function coordinate(event){
+        t = event.clientX;
+        l= event.clientY;
+        console.log("x",t);
+
+        console.log("y",l);
+        console.log("top",field.clientTop);
+        console.log("left",field.clientLeft);
+        //console.log(field.clientLeft);
+            ball.style.left =  (t - ball.offsetWidth) + 'px';
+            ball.style.top = (l - ball.offsetHeight) + 'px';
+
+
+       }
+    field.addEventListener("click", coordinate)
+    
+    //ball.style.left = Math.round(field.clientWidth/2 - ball.offsetWidth/2) + 'px';
+    //ball.style.top = Math.round(field.clientHeight/2 - ball.offsetHeight/2) + 'px';
+
+  </script>
+
+
+</body>
+
+</html>
