@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+
+  <div style="display: flex;"><div id="fir" style="display: block;">▶</div><div id="sec" style="display: none;">▼</div>Sweeties (click me)!</div> 
+
+  <ul id="ul" style="display: none;">
+    <li>Cake</li>
+    <li>Donut</li>
+    <li>Honey</li>
+  </ul>
+
+  <script>
+    function hider() {
+        fir.style.display = "none";
+        sec.style.display = "block";
+        ul.style.display = "block";
+    }
+
+    function hider1() {
+        fir.style.display = "block";
+        sec.style.display = "none";
+        ul.style.display = "none";
+    }
+
+
+    fir.addEventListener("click",hider);
+    sec.addEventListener("click",hider1)
+  </script>
+
+</body>
+</html>
