@@ -40,7 +40,7 @@
     document.addEventListener('mouseover',function(event){
         if(event.target.dataset.tooltip) {
             elem = document.createElement('div');
-            elem.className = "elem";
+            elem.className = "tooltip";
             elem.innerHTML = event.target.dataset.tooltip;;
             document.body.append(elem);
             
