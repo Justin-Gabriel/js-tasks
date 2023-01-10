@@ -65,7 +65,7 @@
   <script>
     // ...your code...
     let elem;
-    house.onmouseover = function(event){
+    /*house.onmouseover = function(event){
         if(event.target.closest('a')){
             elem = document.createElement('div');
             elem.className = 'tooltip';
@@ -89,7 +89,31 @@
 
         }
 
+    }*/
+
+    house.onmouseover = function(event) {
+      let coords = event.target.closest('[data-tooltip')
+      if(coords) {
+        elem = document.createElement('div');
+        elem.className = 'tooltip';
+        elem.innerHTML = coords.dataset.tooltip;
+        house.append(elem)
+        let left = coords.getBoundingClientRect().left + (coords.offsetWidth - elem.offsetWidth) / 2;
+        console.log("left: ",left);
+        if (left < 0) left = 0;
+  
+        let top = coords.getBoundingClientRect().top - elem.offsetHeight - 5;
+        console.log("top: ", top);
+        if (top < 0) {
+          top = coords.getBoundingClientRect().top + coords.offsetHeight + 5;
+        }
+        elem.style.left = left + 'px';
+        elem.style.top = top + 'px';
+      }
+
+
     }
+
 
     house.onmouseout = function(event){
         if (elem) {
