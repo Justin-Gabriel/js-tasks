@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="slider" class="slider">
+    <div id="thumb" class="thumb"></div>
+  </div>
+
+  <script>
+    // ...your code...
+    //let thumb = document.getElementsByClassName("thumb");
+    //console.log(thumb);
+    let left ;
+    thumb.onmousedown = function(event) {
+        
+        //let shiftX = event.clientX - thumb.getBoundingClientRect().left;
+        //let shiftY = event.clientY - thumb.getBoundingClientRect().top;
+        //console.log("shiftX",shiftX);
+        //console.log("shiftY",shiftY);
+        
+
+        moveAt(event.pageX);
+
+        function moveAt(pageX) {
+
+                left = pageX - event.clientX + event.target.offsetWidth
+                if(left < 0 ) left = 0 ;
+                else if (left > event.target.parentNode.offsetWidth - event.target.offsetWidth) left = event.target.parentNode.offsetWidth - event.target.offsetWidth
+                thumb.style.left =   left + 'px' ;
+
+
+                
+        }
+
+        function onMouseMove(event) {
+            moveAt(event.pageX);
+        }
+
+        document.addEventListener('mousemove', onMouseMove);
+
+
+        //console.log("left",left);
+        thumb.onmouseup = function() {
+            document.removeEventListener('mousemove', onMouseMove);
+            thumb.onmouseup = null;
+        }
+
+
+
+
+
+    }
+
+
+
+
+  </script>
+
+</body>
+</html>
