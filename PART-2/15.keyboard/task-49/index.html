@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Press "Q" and "W" together (can be in any language).
+    <script>
+        /*document.onkeydown = function(event) {
+            if(event.code === 'KeyQ' || event.code === 'KeyW' ) {
+                console.log("event.code: ",event.code);
+                document.onkeydown = function(e) {
+                    console.log("e.code: ",e.code);
+                    if((e.code === 'KeyQ' || e.code === 'KeyW') && event.code != e.code ) 
+                    alert("Hello !")
+
+                }
+            }
+        }*/
+        function mykey(event){
+            document.removeEventListener('keydown',mykey)
+            if(event.code === 'KeyQ' || event.code === 'KeyW' ) {
+                function mykeys(e) {
+                    if((e.code === 'KeyQ' || e.code === 'KeyW') && event.code != e.code ) alert("Hello !")
+
+                    
+                    document.removeEventListener('keydown',mykeys)
+                    location.reload()
+                }
+                document.addEventListener('keydown', mykeys)
+            }
+        }
+
+        document.addEventListener('keydown', mykey)
+        
+
+    </script>
+</body>
+</html>
