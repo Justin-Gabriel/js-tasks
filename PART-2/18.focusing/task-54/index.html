@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <link type="text/css" rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+</head>
+
+<body>
+
+  <ul>
+    <li>Click the div to edit.</li>
+    <li>Enter or blur saves the result.</li>
+  </ul>
+
+  HTML is allowed.
+
+  <div id="view" class="view">Text</div>
+
+  <script>
+    // ...your code...
+    // Note: <textarea> should have class="edit"
+    // my.css has styles to make it the same size as div
+    function onclick() {
+        view.tabIndex ="0"
+        view.classList.add('edit');
+        view.contentEditable = "true";
+    }
+
+    function clicks(event) {
+        if(event.target.id != "view" || event.key == 'Enter') {
+            view.classList.remove('edit');
+            view.contentEditable = "false"
+        }
+    }
+
+    view.addEventListener('click',onclick)
+    document.addEventListener('click',clicks)
+    document.addEventListener('keydown',clicks)
+  </script>
+
+</body>
+</html>
