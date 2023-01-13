@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    #mouse {
+      display: inline-block;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    #mouse:focus {
+      outline: 1px dashed black;
+    }
+  </style>
+</head>
+
+<body>
+
+  <p>Click on the mouse and move it with arrow keys.</p>
+
+  <pre id="mouse">
+ _   _
+(q\_/p)
+ /. .\
+=\_t_/=   __
+ /   \   (
+((   ))   )
+/\) (/\  /
+\  Y  /-'
+ nn^nn
+</pre>
+
+
+  <script>
+    // ...your code...
+
+    function onclick(event){
+        mouse.focus()
+        console.log(mouse.style);
+        document.onkeydown = function (e){
+            if (e.keyCode == '38') {
+                mouse.style.top = (mouse.style.top) - 5 + "px";
+                console.log("yes");
+            }
+            else if (e.keyCode == '40') {
+                // down arrow
+                mouse.style.bottom = (mouse.style.bottom) + 5 + "px";
+            }
+            else if (e.keyCode == '37') {
+               // left arrow
+               mouse.style.left = (mouse.style.left) - 5 + "px";
+            }
+            else if (e.keyCode == '39') {
+               // right arrow
+               mouse.style.right = (mouse.style.right) + 5 + "px";
+            }
+        }
+    }
+
+    let mouse = document.getElementById("mouse")
+    mouse.addEventListener('click',onclick)
+  </script>
+
+</body>
+
+</html>
