@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="genres">
+        <option value="rock">Rock</option>
+        <option value="blues" selected>Blues</option>
+      </select>
+
+    <script>  
+        for (let select of genres.options){
+            if(select.selected){
+                console.log(`value - ${select.value} ,text - ${select.text}`);
+            }
+        }
+        let option = new Option("Classic","Classic");
+        const select = document.querySelector('select');
+        select.add(option)
+        option.selected = true;
+
+    </script>
+
+</body>
+</html>
