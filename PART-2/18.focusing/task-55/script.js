@@ -14,7 +14,7 @@ table.onclick = function(event) {
   } else if (target.className == 'edit-ok') {
     finishTdEdit(editingTd.elem, true);
   } else if (target.nodeName == 'TD') {
-    if (editingTd) return; // already editing
+    if (editingTd) return; // already editng
 
     makeTdEditable(target);
   }
