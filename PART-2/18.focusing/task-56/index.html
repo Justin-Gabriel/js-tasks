@@ -37,29 +37,37 @@
     // ...your code...
 
     function onclick(event){
-        mouse.focus()
-        console.log(mouse.style);
+
+        mouse.style.position = "relative";
+        mouse.style.top = 0 + 'px';
+        mouse.style.left = 0 + 'px';
+
         document.onkeydown = function (e){
             if (e.keyCode == '38') {
-                mouse.style.top = (mouse.style.top) - 5 + "px";
-                console.log("yes");
+
+                mouse.style.top = parseInt(mouse.style.top) - 5 + "px";
             }
             else if (e.keyCode == '40') {
-                // down arrow
-                mouse.style.bottom = (mouse.style.bottom) + 5 + "px";
+
+                mouse.style.top = parseInt(mouse.style.top) + 5 + "px";
+  
             }
             else if (e.keyCode == '37') {
                // left arrow
-               mouse.style.left = (mouse.style.left) - 5 + "px";
+               mouse.style.left = parseInt(mouse.style.left) - 5 + "px";
+  
             }
             else if (e.keyCode == '39') {
                // right arrow
-               mouse.style.right = (mouse.style.right) + 5 + "px";
+               mouse.style.left = parseInt(mouse.style.left) + 5  + "px";
+
             }
         }
     }
 
+
     let mouse = document.getElementById("mouse")
+    mouse.tabIndex = -1;
     mouse.addEventListener('click',onclick)
   </script>
 
